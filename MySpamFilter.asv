@@ -5,7 +5,7 @@ formatSpec = '%f%f%f%f%f%f%C';
 T = readtable(fileName,'Delimiter',',', ...
  'Format',formatSpec);
 T.data = T.charExclamation;
-thrsld = 3;
+thrsld = ;
 % paint histograms
 subplot(1,2,1)
  histogram(T.data(T.type=='spam'),'BinLimits',[0,6])
@@ -85,20 +85,19 @@ p_A_S = A_S/S;
 p_A_notS = A_notS/notS;
 p_S_A = (p_A_S*isSpam)/(p_A_S*isSpam+p_A_notS*isNotSpam);
 p_notS_A = (p_A_notS*isNotSpam)/(p_A_S*isSpam+p_A_notS*isNotSpam);
-%p_notS_A
 
 % Bayes for C (remove)
 p_C_S = C_S/S;
 p_C_notS = C_notS/notS;
 p_S_C = (p_C_S*isSpam)/(p_C_S*isSpam+p_C_notS*isNotSpam);
-%p_S_C
-
+p_notS_C = (p_C_notS*isNotSpam)/(p_C_S*isSpam+p_C_notS*isNotSpam);
 
 % Bayes for E and A
 p_S_AE = (p_E_S*p_A_S*isSpam) / (p_E_S*p_A_S*isSpam + p_E_notS*p_A_notS*isNotSpam);
 p_S_AE
 p_notS_AE = (p_E_notS*p_A_notS*isNotSpam) / (p_E_notS*p_A_notS*isNotSpam + p_E_S*p_A_S*isSpam);
 p_notS_AE
+
 
 % Bayes for E and C
 p_S_CE = (p_E_S*p_C_S*isSpam) / (p_E_S*p_C_S*isSpam + p_E_notS*p_C_notS*isNotSpam);

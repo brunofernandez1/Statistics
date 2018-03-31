@@ -26,6 +26,7 @@
 
 Es ist zu sehen, dass mit einem threshold von 0 zu viele Emails als Spam erkannt werden.
 Ich werde deshalb für die weiteren Schritte immer mit einem threshold von 5 arbeiten.
+Lieber landet ein Spam im Posteingang statt umgekehrt
 Ausserdem sind die Wörter welche am häufigsten in Spamnachrichten vorkommen charExclamation, free und remove.
 Deshalb werden wir nur mit diesen Wörtern weiter arbeiten.
 
@@ -50,6 +51,14 @@ Für die Wahrscheinlichkeitsrechnung nehmen wir eine Spamwahrscheinlichkeit von 0
 | 0.008959338387319 | 0.002242152466368 | 0.799834459925507 | 0.200165540074493 | 
 
 ### Bayes für free
-|   free ist Spam     | free ist NICHT Spam  | Spam welches free beinhaltet  |
-| ------------- |:-------------:| :-----:|
-|  |  |  |
+|  free ist Spam | free ist NICHT Spam | Spam welches free beinhaltet | Nichtspam welches free beinhaltet |
+| ------------- |:-------------:| :-----:|:-----:|
+| 0.008270158511371 | 4.484304932735426e-04 | 0.948566162135337 | 0.051433837864663 | 
+
+### Bayes für remove
+|  remove ist Spam | remove ist NICHT Spam | Spam welches remove beinhaltet | Nichtspam welches remove beinhaltet |
+| ------------- |:-------------:| :-----:|:-----:|
+| 0.001378359751895 | 0 | 1 | 0 | 
+
+### Bayes für Kombination der Wörter
+

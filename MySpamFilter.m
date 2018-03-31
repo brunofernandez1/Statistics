@@ -5,7 +5,7 @@ formatSpec = '%f%f%f%f%f%f%C';
 T = readtable(fileName,'Delimiter',',', ...
  'Format',formatSpec);
 T.data = T.charExclamation;
-thrsld = 5;
+thrsld = 3;
 % paint histograms
 subplot(1,2,1)
  histogram(T.data(T.type=='spam'),'BinLimits',[0,6])

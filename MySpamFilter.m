@@ -27,6 +27,8 @@ notE_notS = sum(T.data(I.training)<= thrsld & T.type(I.training)=='nonspam');
 p_E_S = E_S/S;
 p_E_notS = E_notS/notS;
 p_S_E = (p_E_S*0.5)/(p_E_S*0.5+p_E_notS*0.5);
+p_notS_E = (p_E_notS*0.5)/(p_E_S*0.5+p_E_notS*0.5);
+
 % Confusion Matrix training sets
 CM_E = [E_S, E_notS; notE_S, notE_notS]
 

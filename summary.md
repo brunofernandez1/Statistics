@@ -45,7 +45,11 @@ Deshalb werden wir nur mit diesen Wörtern weiter arbeiten.
 Für die Wahrscheinlichkeitsrechnung nehmen wir eine Spamwahrscheinlichkeit von 0.5 wie es im Aufgabenblatt beschrieben wurde.
 
 ### Bayes für charExclamation
-|   charExclamation ist Spam     | charExclamation ist NICHT Spam  | Spam welches charExclamation beinhaltet  |
-| ------------- |:-------------:| :-----:|
-| 0.008959338387319 | 0.002242152466368 | 0.799834459925507 |
+|  charExclamation ist Spam | charExclamation ist NICHT Spam | Spam welches charExclamation beinhaltet | Nichtspam welches charExclamation beinhaltet |
+| ------------- |:-------------:| :-----:|:-----:|
+| 0.008959338387319 | 0.002242152466368 | 0.799834459925507 | 0.200165540074493 | 
 
+### Bayes für free
+|   free ist Spam     | free ist NICHT Spam  | Spam welches free beinhaltet  |
+| ------------- |:-------------:| :-----:|
+|  |  |  |

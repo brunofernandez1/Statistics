@@ -5,7 +5,7 @@ formatSpec = '%f%f%f%f%f%f%C';
 T = readtable(fileName,'Delimiter',',', ...
  'Format',formatSpec);
 T.data = T.charExclamation;
-thrsld = ;
+thrsld = 5;
 % paint histograms
 subplot(1,2,1)
  histogram(T.data(T.type=='spam'),'BinLimits',[0,6])
@@ -27,6 +27,8 @@ notE_notS = sum(T.data(I.training)<= thrsld & T.type(I.training)=='nonspam');
 p_E_S = E_S/S;
 p_E_notS = E_notS/notS;
 p_S_E = (p_E_S*0.5)/(p_E_S*0.5+p_E_notS*0.5);
+p_notS_E = (p_E_notS*isNotSpam)/(p_A_S*isSpam+p_A_notS*isNotSpam);
+
 % Confusion Matrix training sets
 CM_E = [E_S, E_notS; notE_S, notE_notS]
 

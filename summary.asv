@@ -47,5 +47,6 @@ Für die Wahrscheinlichkeitsrechnung nehmen wir eine Spamwahrscheinlichkeit von 0
 ### Bayes für charExclamation
 |   charExclamation ist Spam     | charExclamation ist NICHT Spam  | Spam welches charExclamation beinhaltet  |
 | ------------- |:-------------:| :-----:|
-| 0.008959338387319 | 0.002242152466368 | 0.799834459925507 |
+| charExclamation     | 2 | 0 |
+| no charExclamation     | 1449 |  2230  |
 

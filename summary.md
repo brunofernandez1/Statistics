@@ -62,3 +62,7 @@ Für die Wahrscheinlichkeitsrechnung nehmen wir eine Spamwahrscheinlichkeit von 0
 
 ### Bayes für Kombination der Wörter
 
+#### Bayes für charExclamation & free
+|  Spam welches charExclamation & free beinhahltet |Nichtspam welches charExclamation & free beinhahltet|
+| ------------- |:-----:|
+|0.990823659319708|0.009176340680292|

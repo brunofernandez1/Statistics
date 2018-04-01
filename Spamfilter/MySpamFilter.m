@@ -7,10 +7,10 @@ T = readtable(fileName,'Delimiter',',', ...
 T.data = T.charExclamation;
 thrsld = 3;
 % paint histograms
-subplot(1,2,1)
+subplot(2,2,1)
  histogram(T.data(T.type=='spam'),'BinLimits',[0,6])
  title('"!": Spam')
-subplot(1,2,2)
+subplot(2,2,2)
  histogram(T.data(T.type=='nonspam'),'BinLimits',[0,6])
  title('"!": Non-Spam')
 % Cross Validation Partition: training set 0.8 and test set 0.2
@@ -34,26 +34,50 @@ CM_E = [E_S, E_notS; notE_S, notE_notS]
 
 
 %% extension by Bruno Fernandez
-% datacollection for A
+% datacollection for A free
 T.data2 = T.free; %A is word free
 A_S = sum(T.data2(I.training)> thrsld & T.type(I.training)=='spam');
 A_notS = sum(T.data2(I.training)> thrsld & T.type(I.training)=='nonspam');
 notA_S = sum(T.data2(I.training)<= thrsld & T.type(I.training)=='spam');
 notA_notS = sum(T.data2(I.training)<= thrsld & T.type(I.training)=='nonspam');
 
-% datacollection for B
+% paint histograms for A free
+subplot(2,2,3)
+ histogram(T.data2(T.type=='spam'),'BinLimits',[0,6])
+ title('"free": Spam')
+subplot(2,2,4)
+ histogram(T.data2(T.type=='nonspam'),'BinLimits',[0,6])
+ title('"free": Non-Spam')
+
+% datacollection for B dollar
 T.data3 = T.charDollar; %B is char dollar
 B_S = sum(T.data3(I.training)> thrsld & T.type(I.training)=='spam');
 B_notS = sum(T.data3(I.training)> thrsld & T.type(I.training)=='nonspam');
 notB_S = sum(T.data3(I.training)<= thrsld & T.type(I.training)=='spam');
 notB_notS = sum(T.data3(I.training)<= thrsld & T.type(I.training)=='nonspam');
 
+% paint histograms for B chardollar
+subplot(2,2,1)
+ histogram(T.data3(T.type=='spam'),'BinLimits',[0,6])
+ title('"chardollar": Spam')
+subplot(2,2,2)
+ histogram(T.data3(T.type=='nonspam'),'BinLimits',[0,6])
+ title('"chardollar": Non-Spam')
+
 % datacollection for C
-T.data4 = T.remove; %B is word remove
+T.data4 = T.remove; %C is word remove
 C_S = sum(T.data4(I.training)> thrsld & T.type(I.training)=='spam');
 C_notS = sum(T.data4(I.training)> thrsld & T.type(I.training)=='nonspam');
 notC_S = sum(T.data4(I.training)<= thrsld & T.type(I.training)=='spam');
 notC_notS = sum(T.data4(I.training)<= thrsld & T.type(I.training)=='nonspam');
+
+% paint histograms for C remove
+subplot(2,2,3)
+ histogram(T.data4(T.type=='spam'),'BinLimits',[0,6])
+ title('"remove": Spam')
+subplot(2,2,4)
+ histogram(T.data4(T.type=='nonspam'),'BinLimits',[0,6])
+ title('"remove": Non-Spam')
 
 % datacollection for D
 T.data5 = T.will; %B is word will
@@ -61,6 +85,14 @@ D_S = sum(T.data5(I.training)> thrsld & T.type(I.training)=='spam');
 D_notS = sum(T.data5(I.training)> thrsld & T.type(I.training)=='nonspam');
 notD_S = sum(T.data5(I.training)<= thrsld & T.type(I.training)=='spam');
 notD_notS = sum(T.data5(I.training)<= thrsld & T.type(I.training)=='nonspam');
+
+% paint histograms for D will
+subplot(2,2,1)
+ histogram(T.data5(T.type=='spam'),'BinLimits',[0,6])
+ title('"will": Spam')
+subplot(2,2,2)
+ histogram(T.data5(T.type=='nonspam'),'BinLimits',[0,6])
+ title('"will": Non-Spam')
 
 % Confusion Matrix training sets for A (free)
 CM_A = [A_S, A_notS; notA_S, notA_notS]

@@ -66,3 +66,14 @@ Für die Wahrscheinlichkeitsrechnung nehmen wir eine Spamwahrscheinlichkeit von 0
 |  Spam welches charExclamation & free beinhahltet |Nichtspam welches charExclamation & free beinhahltet|
 | ------------- |:-----:|
 |0.990823659319708|0.009176340680292|
+
+#### Bayes für charExclamation & remove
+|  Spam welches charExclamation & remove beinhahltet |Nichtspam welches charExclamation & remove beinhahltet|
+| ------------- |:-----:|
+|1|0|
+
+#### Bayes für charExclamation & remove
+|  Spam welches charExclamation & remove beinhahltet |Nichtspam welches charExclamation & remove beinhahltet|
+| ------------- |:-----:|
+|1|0|
+

@@ -1,9 +1,9 @@
 # Ergebnisse - by Bruno Fernandez
 ## Vorkommen einzelner Wörter in Mails
 
-![plot1](plot1.png "Plot1")
-![plot2](plot2.png "Plot2")
-![plot3](plot3.png "Plot3")
+![plot1](plot1.PNG "Plot1")
+![plot2](plot2.PNG "Plot2")
+![plot3](plot3.PNG "Plot3")
 
 
 

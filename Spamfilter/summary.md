@@ -31,23 +31,29 @@
 | charExclamation     | 1210 | 598 |
 | no charExclamation     | 241 |  1632  |
 
-Es ist zu sehen, dass mit einem threshold von 0 zu viele Emails als Spam erkannt werden.
-Ich werde deshalb für die weiteren Schritte immer mit einem threshold von 5 arbeiten.
+#### charExclamation - mit threshold 0.1:
+|         | spam           | not spam  |
+| ------------- |:-------------:| :-----:|
+| charExclamation     | 1078 | 391 |
+| no charExclamation     | 373 |  1839  |
+
+Es ist zu sehen, dass mit einem zu hohen threshold zu viele Mails als false positive erkannt werden
+Ich werde deshalb für die weiteren Schritte immer mit einem threshold von 0.1 arbeiten.
 Lieber landet ein Spam im Posteingang statt umgekehrt
-Ausserdem sind die Wörter welche am häufigsten in Spamnachrichten vorkommen charExclamation, free und remove.
+Ausserdem sind die Wörter welche am häufigsten in Spamnachrichten vorkommen charExclamation, free und will.
 Deshalb werden wir nur mit diesen Wörtern weiter arbeiten.
 
-#### free - mit threshold 5:
+#### free - mit threshold 0.1:
 |         | spam           | not spam  |
 | ------------- |:-------------:| :-----:|
-| free     | 12 | 1 |
-| no free     | 1439 |  2229  |
+| free     | 756 | 158 |
+| no free     | 695 |  2072  |
 
-#### remove - mit threshold 5:
+#### will - mit threshold 0.1:
 |         | spam           | not spam  |
 | ------------- |:-------------:| :-----:|
-| remove     | 2 | 0 |
-| no remove     | 1449 |  2230  |
+| will     | 918 | 934 |
+| no will     | 533 |  1296  |
 
 ## Wahrscheinlichkeit der Wörter
 Für die Wahrscheinlichkeitsrechnung nehmen wir eine Spamwahrscheinlichkeit von 0.5 wie es im Aufgabenblatt beschrieben wurde.
@@ -55,32 +61,32 @@ Für die Wahrscheinlichkeitsrechnung nehmen wir eine Spamwahrscheinlichkeit von 0
 ### Bayes für charExclamation
 |  charExclamation ist Spam | charExclamation ist NICHT Spam | Spam welches charExclamation beinhaltet | Nichtspam welches charExclamation beinhaltet |
 | ------------- |:-------------:| :-----:|:-----:|
-| 0.008959338387319 | 0.002242152466368 | 0.799834459925507 | 0.200165540074493 | 
+| 0.742935906271537 | 0.175336322869955 | 0.809058449873977 | 0.190941550126023 | 
 
 ### Bayes für free
 |  free ist Spam | free ist NICHT Spam | Spam welches free beinhaltet | Nichtspam welches free beinhaltet |
 | ------------- |:-------------:| :-----:|:-----:|
-| 0.008270158511371 | 4.484304932735426e-04 | 0.948566162135337 | 0.051433837864663 | 
+| 0.521019986216402 | 0.070852017937220 | 0.880291655222757 | 0.119708344777243 | 
 
 ### Bayes für remove
 |  remove ist Spam | remove ist NICHT Spam | Spam welches remove beinhaltet | Nichtspam welches remove beinhaltet |
 | ------------- |:-------------:| :-----:|:-----:|
-| 0.001378359751895 | 0 | 1 | 0 | 
+| 0.352860096485183 | 0.014349775784753 | 0.960922140529477 | 0.039077859470523 | 
 
 ### Bayes für Kombination der Wörter
 
 #### Bayes für charExclamation & free
 |  Spam welches charExclamation & free beinhahltet |Nichtspam welches charExclamation & free beinhahltet|
 | ------------- |:-----:|
-|0.990823659319708|0.009176340680292|
+|0.968904374066427|0.031095625933573|
 
 #### Bayes für charExclamation & remove
 |  Spam welches charExclamation & remove beinhahltet |Nichtspam welches charExclamation & remove beinhahltet|
 | ------------- |:-----:|
-|1|0|
+|0.990493628136204|0.009506371863796|
 
 #### Bayes für charExclamation, free & remove
 |  Spam welches charExclamation, free & remove beinhahltet |Nichtspam welches charExclamation, free & remove beinhahltet|
 | ------------- |:-----:|
-|1|0|
+|0.998696549620179|0.032051763991738|
 

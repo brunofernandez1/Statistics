@@ -5,7 +5,7 @@ formatSpec = '%f%f%f%f%f%f%C';
 T = readtable(fileName,'Delimiter',',', ...
  'Format',formatSpec);
 T.data = T.charExclamation;
-thrsld = 3;
+thrsld = 0.1;
 % paint histograms
 subplot(2,2,1)
  histogram(T.data(T.type=='spam'),'BinLimits',[0,6])
@@ -80,7 +80,7 @@ subplot(2,2,4)
  title('"remove": Non-Spam')
 
 % datacollection for D
-T.data5 = T.will; %B is word will
+T.data5 = T.will; %D is word will
 D_S = sum(T.data5(I.training)> thrsld & T.type(I.training)=='spam');
 D_notS = sum(T.data5(I.training)> thrsld & T.type(I.training)=='nonspam');
 notD_S = sum(T.data5(I.training)<= thrsld & T.type(I.training)=='spam');

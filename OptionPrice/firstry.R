@@ -20,3 +20,8 @@ Quandl.api_key("JP4tSFZNKVnortt5bWty")
 #example how to get data:
 data <- Quandl("NSE/OIL")
 
+#wiener process = brownian motion
+# E = expected value
+# Erwartungswert sollte immer 0 sein
+# Varianz (t-s) (t=zeit, s=zeit) differenz zwischen afangszeit und endzeit
+# Standardabweichung = wurzel(varianz)

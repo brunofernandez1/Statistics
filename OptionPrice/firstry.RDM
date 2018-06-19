@@ -1,0 +1,30 @@
+#first try
+---
+title: "this is my first markdown demo"
+output: html_document
+---
+
+
+
+#### prereqs
+#install.packages("devtools")
+#library(devtools)
+#install_github("quandl/quandl-r")
+#library(Quandl)
+
+#prereq from cran:
+#install.packages("Quandl")
+#library(Quandl)
+
+
+
+Quandl.api_key("JP4tSFZNKVnortt5bWty")
+
+#example how to get data:
+data <- Quandl("NSE/OIL")
+
+#wiener process = brownian motion
+# E = expected value
+# Erwartungswert sollte immer 0 sein
+# Varianz (t-s) (t=zeit, s=zeit) differenz zwischen afangszeit und endzeit
+# Standardabweichung = wurzel(varianz)

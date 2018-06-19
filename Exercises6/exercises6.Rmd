@@ -1,0 +1,113 @@
+---
+title: "Exercies6"
+author: "Bruno Fernandez"
+date: "19 Juni 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Zufallszahlen in R
+### runif
+
+runif(n) erzeugt Zahlen zwischen 0...1
+n= Anzahl zufällige Zahlen
+  
+```{r runif}
+runif(5)
+```
+
+### sample
+
+Sample(w,x,y,z) erzeugt zufällige Zahlen wie runif. Hat jedoch vier Variablen die mitgegenbe werden können
+w = Raum vom 1 bis w
+x = Anzahl zahlen
+y = Ziehen mit zurücklegen. Standardmässig false
+Z = Ein Vektor mit Wahrscheinlichkeitsverteilung für die Zufallszahlen
+```{r sample}
+sample (100, 10, replace=FALSE)
+
+```
+Um immer die selben Zufallszahlen zu generieren verwenden wir immer einein bestimmten seed
+
+
+```{r samples_seed}
+set.seed(13)
+sample (100, 10, replace=FALSE)
+```
+
+Wenn kein Seed angegeben wird, generiert der COmputer einen eigenen aus der PID und der Systemzeit
+
+## Aufgabe S6.1
+### a)
+Seuquezn von 100 Würfelzahlen (1-6) ohne den selben Seed
+replace=TRUE weil 1-6 mehrfach vorkommen können
+```{r sample_wuerfel}
+set.seed(17)
+sample (6, 100, replace=TRUE)
+set.seed(17)
+sample (6, 100, replace=TRUE)
+```
+
+Seuquezn von 100 Würfelzahlen (1-6) mit dem selben Seed
+replace=TRUE weil 1-6 mehrfach vorkommen können
+```{r sample_wuerfel_seed}
+sample (6, 100, replace=TRUE)
+sample (6, 100, replace=TRUE)
+```
+
+### b)
+Absolute H(A) und relative h(A) Häufigkeit berechnen von Ereignis A = es wurde eine 6 geworfen
+```{r rel_haeufigkeit}
+values = sample (6, 1000, replace=TRUE)
+#alle values printen
+#values
+
+#values von 1-5 in liste printen
+#values[1:5]
+
+#nach einem Wert in Liste suchen
+#grep("6", values)
+
+#loop um jedes Element in liste zu durchsuchen
+for (i in 1:1000) {
+  temp = grep("6", values[1:i])
+  #print(temp)
+  counterallelem[[i]] <- length(values[1:i])
+  counterall6[[i]] <- length(temp)
+  #print(countelem)
+  
+}
+#counterallelem
+#counterall6
+plot(counterallelem, counterall6, type = "h", xlab="Anzahl Würfe", ylab="Absolute Wahrscheinlichkeit", main="Anzahl Würfe")
+
+plot(counterallelem, counterall6/counterallelem, type = "l", xlab="Anzahl Würfe", ylab="bedingte Wahrscheinlichkeit", main="Anzahl Würfe")
+```
+
+## Aufgabe S6.2
+23 Zufallszahlen aus 1-365 und schauen ob man zwei gleiche Zahlen erhält
+(zwei am gleichen Tag Geburtstag)
+Unique() entfernt die doppelten Einträge in einer Liste
+```{r sample}
+#dates=data.frame("a"=1, "b"=23)
+for (i in 1:10){
+  dates <- list()
+  dates <- append(dates, sample (x=365, size=23, replace=TRUE))
+  #Wahrscheinlichkeit, dass sich ein Wert wiederholt:
+  probability= length(unique(dates))/365
+  print("Die Wahrscheinlichkeit ist ca:")
+  print(length(unique(dates))/365)
+}
+#dates
+#Anzahl einmalige Elemente welche sich in der Liste befinden
+#length(unique(dates))
+
+
+```
+
+
+
+

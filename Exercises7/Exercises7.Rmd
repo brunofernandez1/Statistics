@@ -1,0 +1,93 @@
+---
+title: "Exercises7"
+author: "Bruno Fernandez"
+date: "19 Juni 2018"
+output: html_document
+---
+
+## Verteilungsfunktion (Wahrscheinlichkeitsverteilung und Verteilungsfunktion der Gleichverteilung)
+Die Wahrscheinlichkeit das eine Wert eine X erreicht.
+
+
+Gleichverteilung für für max. diese Zahl
+Genau eine Zahl
+punif_discrete <-function(q, min=0, max=1) {
+ifelse(q<min, 0, ifelse(q>=max, 1, (floor(q)-min+1)/(max-min+1)))
+}
+
+Gleichverteilung für genau diese Zahl
+dunif_discrete <-function(x, min=0, max=1) {
+ifelse(x>=min & x<=max & round(x)==x, 1/(max-min+1), 0)
+}
+```{r}
+dunif_discrete <-function(x, min=0, max=1) {
+ifelse(x>=min & x<=max & round(x)==x, 1/(max-min+1), 0)
+}
+punif_discrete <-function(q, min=0, max=1) {
+ifelse(q<min, 0, ifelse(q>=max, 1, (floor(q)-min+1)/(max-min+1)))
+}
+
+dunif_discrete(x = 4, min = 1, max = 6)
+punif_discrete(q = 4, min = 1, max = 6)
+
+```
+
+## Binomialverteilung
+Eregnisse welche nur zwei Resultate haben können wie zB Münzwerfern
+
+### rbinom
+Generiert zufällige Resoultate
+Zb Reslutate in Tennisturinier
+12 = Turniere
+0.6 = Wahrscheinlichkeit das einer gewinnt
+3 = 3 Runden pro Turnier
+Alle Outputs grösser <=2 bedeuten einen Sieg
+```{r}
+rbinom(n= 1:12, size=3, prob=0.6)
+```
+
+Wahrscheinlichkeit das er nur ein Spiel gewinnt:
+q=1 spiel
+```{r}
+pbinom(q= 1, size=3, prob=0.6)
+```
+
+Wahrscheinlickeit das alle drei Spiele gewonnen werden:
+```{r}
+dbinom(x= 3, size=3, prob=0.6)
+```
+
+## Aufgabe S7.1
+
+### a)
+
+Versuchen Sie, die Bedeutung der Argumente von rbinom, dbinom und pbinom in den Beispielen
+oben zu "erraten". Schauen Sie danach in der R-Hilfe nach.
+rbinom = Die Anzahl an Erfolge in einer Reihe
+- n = Anzahl Versuche
+- size = Anzahle Versuche pro n
+- prob = Wahrscheinlichkeit des Erfolges
+pbinom = Wahrscheinlichkeit q Versuche in Total Versuche (size)
+- q = q Versuche
+- size = Total Versuche
+- prob = Wahrscheinlichkeit des Erfolges
+dbinom = Wahrscheinlichkeit q Versuche in Total Versuche (size)
+- x = x Versuche
+- size = Total Versuche
+- prob = Wahrscheinlichkeit des Erfolges
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

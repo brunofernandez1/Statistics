@@ -1,0 +1,14 @@
+---
+title: "this is my first markdown demo"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+```
+#some fancy title
+
+```{r}
+image(volcano, col = viridis(200))
+
+```

@@ -76,18 +76,112 @@ dbinom = Wahrscheinlichkeit q Versuche in Total Versuche (size)
 - size = Total Versuche
 - prob = Wahrscheinlichkeit des Erfolges
 
+### b)
+```{r}
+set.seed(13)
+rbinom(n= 1:42, size=3, prob=0.6)
+set.seed(13)
+sample(x = 4, size=42, replace=TRUE)-1
+```
 
+## Geometrische Verteilung
+Anzahl Misserfolge bis man einen Erfolg hat.
+Z.B Wieviel Mal eine Insulinpumpe belastet werden kann, bis sie defekt ist.
 
+Wahrscheinlichleit, dass eine Pumpe nach 5 Belastungen kaputt ist 
+q= 4 Mal geht sie nicht kaputt, erst beim Fünften
+prob=0.001 Wahrscehinlichkeit dass die Pumpe nach einer Belastung defekt ist
+```{r}
+1 - pgeom(q=4, prob = 0.001)
+```
 
+Mögliche Seuenz von Anzahl Belastungen bis einen Pumpe defekt ist:
+n=Anzahl durchläufe
+prob= wahrscheinlickeit für ein Durchlauf
+```{r}
+set.seed(42)
+rgeom(n=1:10, prob=0.001)
+```
 
+## Aufgabe S7.2
+### a)
+Wahrscheinlichkeit das keine 6 erscheint bei 100 Mal werfen
+Warum binomialverteilung und nicht geom? erfolg oder nicht erfolg?
+```{r}
+dbinom(x= 0, size=100, prob=1/6)
+```
+### b)
+Wahrscheinlichkeit für genau eine sechs
+```{r}
+dbinom(x= 1, size=100, prob=1/6)
+```
 
+### c)
+Wahrscheinlichkeit für max 12 Mal eine 6 in 100 Versuchen
+wäre auch möglich gewesen mit:
+dbinom(x= 0, size=100, prob=1/6) +
+dbinom(x= 1, size=100, prob=1/6) +
+....+
+dbinom(x= 12, size=100, prob=1/6) +
+```{r}
+pbinom(q= 12, size=100, prob=1/6)
+```
 
+### d)
+Wahrscheinlichkeit für min 17 Sechsen:
+```{r}
+1-pbinom(q= 16, size=100, prob=1/6)
+```
 
+## Aufgabe S7.3
+### a)
+Wahrscheinlichkeit, dass kein Mal Kopf erscheint
+```{r}
+dbinom(x= 0, size=100, prob=0.52)
+```
+### b)
+Wahrscheinlichkeit, dass min. 1 Mal Kopf erscheint
+```{r}
+1- dbinom(x= 0, size=100, prob=0.52)
+pbinom (q=99, size=100, prob=0.52)
+```
 
+### C)
+Wahrscheinlichkleit, dass höchstens 45 Mal Kopf
+```{r}
+pbinom(q= 45, size=100, prob=0.52)
+```
 
+Wahrscheinlichkleit, dass höchstens 45 Mal Kopf (faire Münze)
+```{r}
+pbinom(q= 45, size=100, prob=0.5)
+```
+## Aufgabe s7.4
+9 Mitglieder, 0.5 prob., min 6 Personen anwesend.
+```{r}
+1-pbinom(q= 5, size=9, prob=0.5)
+```
+## Aufgabe s7.5
+12 Würfe, genau 6 Treffer
+```{r}
+dbinom(x=6, size=12, prob=0.5)
+```
+## Aufgabe s7.6
+Einwahl prob=0.85
+### a)
+Wahrscheinlichkeit erst bei dritten Mal einwählen
+Da nicht bekannt wieviele Versuche, geometrisch Verteilung verweden
+```{r}
+dgeom(x=2, prob=0.85)
+```
+### b)
+erst ab dem 4. Mal eroflgreich. Da 4. Mal nicht garantiert, kann geom nich genommen werden
+```{r}
+(1-0.85)^3
+```
 
-
-
-
+## Aufgabe S7.7
+prob = 0.2
+### a)
 
 
